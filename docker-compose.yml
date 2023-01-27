@@ -37,6 +37,7 @@ services:
       --networkid=${NETWORK_ID}
     ports:
       - "8545:8545"
+      - "30303:30303"
     networks:
       priv-eth-net:
     restart: always
@@ -70,6 +71,30 @@ services:
       - "80:80"
     depends_on:
       - geth-rpc-endpoint
+    networks:
+      priv-eth-net:
+    restart: always
+
+  eth-net-intelligence-api:
+    hostname: eth-net-intelligence-api
+    image: registry.carakan.id/blockchain/eth-net-intelligence-api:v1.0
+    volumes:
+      - ./app.json:/home/ethnetintel/eth-net-intelligence-api/app.json
+    depends_on:
+      - geth-rpc-endpoint
+    networks:
+      priv-eth-net:
+    restart: always
+
+  eth-netstat:
+    hostname: eth-netstat
+    image: registry.carakan.id/blockchain/ethnetstat:v1.1
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - eth-net-intelligence-api
     networks:
       priv-eth-net:
     restart: always

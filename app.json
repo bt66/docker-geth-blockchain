@@ -1,0 +1,24 @@
+[
+  {
+    "name"              : "node-app",
+    "script"            : "app.js",
+    "log_date_format"   : "YYYY-MM-DD HH:mm Z",
+    "merge_logs"        : false,
+    "watch"             : false,
+    "max_restarts"      : 10,
+    "exec_interpreter"  : "node",
+    "exec_mode"         : "fork_mode",
+    "env":
+    {
+      "NODE_ENV"        : "production",
+      "RPC_HOST"        : "10.10.72.165",
+      "RPC_PORT"        : "8545",
+      "LISTENING_PORT"  : "30303",
+      "INSTANCE_NAME"   : "rpc-api",
+      "CONTACT_DETAILS" : "",
+      "WS_SERVER"       : "http://eth-netstat:3000",
+      "WS_SECRET"       : "2wsx1qaz",
+      "VERBOSITY"       : 2
+    }
+  }
+]
