@@ -35,6 +35,7 @@ services:
       --http.api="eth,web3,net,admin,personal"
       --http.corsdomain="*"
       --networkid=${NETWORK_ID}
+      --rpcvhosts="*"
     ports:
       - "8545:8545"
       - "30303:30303"
